@@ -1,4 +1,4 @@
-import asyncio
+
 import pygame as pg
 import sys
 from settings import *
@@ -126,8 +126,6 @@ class Game:
             self.check_events()
             self.update()
             self.draw()
-            await asyncio.sleep(0)
-
 if __name__ == '__main__':
     game = Game()
-    asyncio.run(game.run())
+    game.run()
