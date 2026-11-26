@@ -1,62 +1,49 @@
 import java.util.Scanner;
-
-class Main {
-	Scanner s = new Scanner(System.in);
-
-	void vacc() {
-		System.out.print("Account Number: ");
-		String acc = s.next();
-
-		if (acc.length() != 10) {
-			System.out.println("invalid input");
-			return;
-		}
-
-		for (int i = 0; i < acc.length(); i++)
-			if (!Character.isDigit(acc.charAt(i))) {
-				System.out.println("invalid input");
-				return;
-			}
-
-		int Tsum = 0;
-		for (int i = 0; i < acc.length(); i++) {
-			int d = acc.charAt(i) - '0';
-
-			if (i % 2 == 0) {
-				d *= 2;
-
-				if (d > 9) d -= 9;
-			}
-
-			Tsum += d;
-		}
-
-		if (Tsum % 10 == 0) System.out.println("checkum : Valid");
-		else System.out.println("checkum : Invalid");
-
-		int ds = 0;
-
-		for (int i = 0; i < acc.length(); i++) ds += (acc.charAt(i) - '0');
-
-
-		while (ds > 9) {
-			int ns= 0;
-
-			while (ds > 0) {
-				ns += (ds % 10);
-				ds /= 10;
-			}
-
-			ds = ns;
-		}
-
-		if (ds % 2 == 0) System.out.println("Root : " + ds + " (Root Even)");
-		else System.out.println("Root : " + ds + " (Root Odd)");
-
-	}
-
-	public static void main(String args[]) {
-		Main ob = new Main();
-		ob.vacc();
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s = new Scanner(System.in);
+	    while(true){
+	        System.out.println();
+	        System.out.println();
+	        System.out.println();
+    	    int no1=0,no2=0;
+    		System.out.println("menu \n1.addition\n2.subtraction\n3.multipllication\n4.division\n5.exit");
+    		System.out.print("enter your choise: ");
+    		int cho = s.nextInt();
+    		if (cho <= 6){
+    		    if(cho < 5){
+        		    System.out.print("enter number 1: ");
+        		    no1 = s.nextInt();
+                    System.out.print("enter number 2: ");
+        		    no2 = s.nextInt();
+    		    }
+        		switch(cho){
+        		    case 1:
+        		        System.out.println("the awnser is "+(no1+no2));
+        		        break;
+        		    case 2:
+        		        System.out.println("the awnser is "+(no1-no2));
+        		        break;
+        		    case 3:
+        		        System.out.println("the awnser is "+(no1*no2));
+        		        break;
+        		    case 4:
+        		        System.out.println("the awnser is "+(no1/no2));
+        		        break;
+        		    case 5:
+        		        System.out.println("thank you for using the app");
+        		        
+        		    default:
+        		        break;
+        		}  
+        		if(cho==5){
+        		    break;
+        		}
+    		}
+    		else {
+    		    System.out.println("invalid chiose");
+    		}
+    	}
 	}
 }
